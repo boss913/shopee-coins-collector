@@ -2,7 +2,7 @@ name: Shopee Coin Collector
 on: 
   workflow_dispatch: ~
   schedule:
-    - cron: "10 16 * * *" 
+    - cron: "2 0 * * *" 
 jobs:
   run-action:
     name: Run action
