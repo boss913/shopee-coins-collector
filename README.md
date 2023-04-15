@@ -15,6 +15,12 @@ Therefore, it can lower the users' entry barrier and speed up.
    ![run actions](https://i.imgur.com/VHCSost.png)  
 2. In most situations, you will receive an SMS authentication in the initial run. After that, github actions will cache your encryted cookie and use it to login derictly in the future.
 
+## Update (2023/03/09)
+
+The workflow will update the cache every time it runs. This is achieved by using a unique key for each run (by adding the github.run_id suffix to the key) and using restore-keys to restore the nearest cache. If there is already a cache named `cache-{hash}` (without run_id suffix), it would always be used because of the exact match.  
+To enable this feature, you need to first delete the cache `cache-{hash}` so that the workflow will use the nearest cache in the next run.
+[reference](https://github.com/actions/cache/blob/main/tips-and-workarounds.md#update-a-cache)
+
 ## Reference
 
 - [wdzeng/shopee-coins-bot](https://github.com/wdzeng/shopee-coins-bot) (source code)
